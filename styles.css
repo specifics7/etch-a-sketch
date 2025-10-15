@@ -1,0 +1,39 @@
+*, *::before, *::after {
+  box-sizing: border-box;
+/* outline: 2px solid red;    */
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+#title {
+  text-align: center;
+}
+
+#etch-container {
+  display: flex;
+  flex-wrap: wrap;
+  border: 1px solid black;
+  height: 1000px;
+  width: 1000px;
+}
+
+.grid-btn {
+  margin-bottom: 20px;
+}
+
+.grid-square {
+  background-color: #d8e2f0;
+  flex: 0 0 calc(100% / 16);
+  height: calc(100% / 16);
+}
+
+.grid-square.hovered {
+  background-color: #333333;
+}
