@@ -1,7 +1,10 @@
 const container = document.getElementById('etch-container');
-const btn = document.querySelector('.grid-btn');
+const btnNewGrid = document.querySelector('.grid-btn');
+const btnReset = document.querySelector('.reset-btn');
+let currGridSize = 16;
 
 function drawGrid(gridSize) {
+    currGridSize = gridSize;
     // Set CSS variable for grid size
     container.style.setProperty('--grid-size', gridSize);
 
@@ -16,7 +19,12 @@ function drawGrid(gridSize) {
     }
 }
 
-btn.addEventListener('click', () => {
+function resetGrid() {
+    container.innerHTML = '';
+    drawGrid(currGridSize);
+}
+
+btnNewGrid.addEventListener('click', () => {
     let gridSize = prompt("Please choose your grid size (1-100)");
     console.log("Test");
 
@@ -29,4 +37,8 @@ btn.addEventListener('click', () => {
     drawGrid(gridSize);
 });
 
-drawGrid(16);
+btnReset.addEventListener('click', () => {
+    resetGrid();
+})
+
+drawGrid(currGridSize);
