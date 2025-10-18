@@ -8,11 +8,17 @@
     <script src="script.js" defer></script>
 </head>
 <body>
-    <h1 id="title">Etch-A-Sketch</h1>
-    <div class="btn-container">
-        <button class="grid-btn">New Grid</button>
-        <button class="reset-btn">Reset</button>
+    <div class="container">
+        <h1 class="title">Etch A Sketch</h1>
+        <div class="screen-frame">
+            <canvas id="canvas" width="600" height="400"></canvas>
+
+        </div>
+
+        <div class="controls">
+            <button class="knob"></button>
+            <button class="knob"></button>
+        </div>
     </div>
-    <div id="etch-container"></div>
 </body>
 </html>
