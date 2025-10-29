@@ -11,13 +11,21 @@
     <div class="container">
         <h1 class="title">Etch A Sketch</h1>
         <div class="screen-frame">
-            <canvas id="canvas" width="600" height="400"></canvas>
-
+            <div id="etch-container"></div>
         </div>
 
         <div class="controls">
-            <button class="knob"></button>
-            <button class="knob"></button>
+            <button class="knob" id="left-knob"></button>
+            <button class="reset-btn">RESET</button>
+            <button class="knob" id="right-knob"></button>
+        </div>
+        
+        <div class="slider-container">
+            <span class="slider-label">Grid Size</span>
+            <div class="slider-wrapper">
+                <input type="range" id="grid-slider" min="2" max="100" value="16" step="1">
+                <span id="grid-size-display">16 x 16</span>
+            </div>
         </div>
     </div>
 </body>
