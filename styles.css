@@ -2,7 +2,7 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-  /* outline: 2px solid aqua;     */
+    /* outline: 2px solid aqua;       */
 }
 
 body {
@@ -38,7 +38,7 @@ body {
 
 .screen-frame {
   background: #3c3836;
-  padding: 20px;
+  padding: 18px;
   border-radius: 15px;
   box-shadow: inset 0 4px 10px rgba(0, 0, 0, 0.6);
 }
@@ -47,8 +47,8 @@ body {
   display: flex;
   flex-wrap: wrap;
   background: #e8e8e8;
-  width: 700px;
-  height: 500px;
+  width: 725px;
+  height: 525px;
   border: 4px solid #282828;
   --grid-size: 16; /* Default size */
   overflow: hidden;
@@ -188,4 +188,42 @@ body {
   padding: 5px 12px;
   border-radius: 6px;
   box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.4);
+}
+
+.rainbow-toggle-container {
+  position: absolute;
+  top: 40px;
+  left: 40px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.rainbow-toggle {
+  position: relative;
+  width: 80px;
+  height: 28px;
+  background: linear-gradient(to right, #ff0000, #ff7f00, #ffff00, #00ff00, #0000ff, #4b0082, #9400d3);
+  border-radius: 20px;
+  border: 4px solid #3c3836;
+  cursor: pointer;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4), inset 0 2px 4px rgba(255, 255, 255, 0.2);
+  transition: all 0.3s;
+  overflow: hidden;
+}
+
+.rainbow-toggle::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(60, 56, 54, 0.7);
+  transition: opacity 0.3s;
+  pointer-events: none;
+}
+
+.rainbow-toggle.active::before {
+  opacity: 0;
 }
