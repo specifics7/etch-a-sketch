@@ -6,6 +6,7 @@ const gridSizeDisplay = document.getElementById('grid-size-display');
 
 let isRainbow = false;
 let currGridSize = 16;
+let isMouseDown = false;
 
 function drawGrid(gridSize) {
     currGridSize = gridSize;
@@ -16,10 +17,23 @@ function drawGrid(gridSize) {
         const divSquare = document.createElement('div');
         divSquare.classList.add('grid-square');
 
+    
+        // Draw on mouseover while mouse is pressed
         divSquare.addEventListener('mouseover', () => {
-            divSquare.classList.add('hovered');
-            if (isRainbow === true) {
-                divSquare.style.backgroundColor = setColor(); 
+            if (isMouseDown) {
+                divSquare.classList.add('hovered');
+                if (isRainbow === true) {
+                    divSquare.style.backgroundColor = setColor();
+                }
+            }
+        });
+        // Draw when clicking down mouse
+        divSquare.addEventListener('mousedown', (e) => {
+            if (e.button === 0) {
+                divSquare.classList.add('hovered');
+                if (isRainbow === true) {
+                    divSquare.style.backgroundColor = setColor();
+                }
             }
         });
         container.appendChild(divSquare);
@@ -50,6 +64,26 @@ gridSlider.addEventListener('input', (e) => {
     gridSizeDisplay.textContent = `${newSize} x ${newSize}`;
     container.innerHTML = '';
     drawGrid(newSize);
+});
+
+container.addEventListener('mousedown', (e) => {
+    // 0 = left click, 1 = scroll click, 2 = right click
+    if (e.button === 0) {
+        e.preventDefault();
+        isMouseDown = true;
+    }
+});
+
+container.addEventListener('mouseup', () => {
+    isMouseDown = false;
+});
+// Handling when mouse has left container
+container.addEventListener('mouseleave', () => {
+    isMouseDown = false;
+});
+// Prevent default drag behavior
+container.addEventListener('dragstart', (e) => {
+    e.preventDefault();
 });
 
 drawGrid(currGridSize);
